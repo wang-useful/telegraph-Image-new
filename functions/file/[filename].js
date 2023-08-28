@@ -44,7 +44,7 @@ async function handleRequest(context) {
 
             if (rating) {
                 if (rating.rating == 3) {
-                    return Response.redirect("https://img.131213.xyz/asset/image/blocked.png", 302);
+                    return Response.redirect("/asset/image/blocked.png", 302);
                 } else {
                     return res_img;
                 }
@@ -53,7 +53,7 @@ async function handleRequest(context) {
                     const rating = await getModerateContentRating(ratingApi, url.pathname);
                     await insertImgInfo(env.IMG, url.pathname, Referer, clientIP, rating.rating, 1, formattedDate);
                     if (rating.rating == 3) {
-                        return Response.redirect("https://img.131213.xyz/asset/image/blocked.png", 302);
+                        return Response.redirect("/asset/image/blocked.png", 302);
                     } else {
                         return res_img;
                     }
